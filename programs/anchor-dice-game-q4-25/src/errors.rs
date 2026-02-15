@@ -31,3 +31,4 @@ pub enum DiceError {
     #[msg("Ed25119 Data Length Error")]
     Ed25519DataLength
 }
+

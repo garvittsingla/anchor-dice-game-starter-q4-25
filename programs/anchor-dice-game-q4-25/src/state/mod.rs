@@ -1,8 +1,10 @@
 use anchor_lang::prelude::*;
 
+
+
 #[account]
 #[derive(InitSpace)]
-pub struct Bet {
+    pub struct Bet {
     pub player: Pubkey,
     pub seed: u128,
     pub slot: u64,
@@ -10,6 +12,8 @@ pub struct Bet {
     pub roll: u8,
     pub bump : u8
 }
+
+
 
 impl Bet {
     

@@ -8,7 +8,7 @@ pub struct PlaceBet<'info> {
     #[account(mut)]
     pub player: Signer<'info>,
     ///CHECK: This is safe
-    pub house: UncheckedAccount<'info>,
+    pub house: UncheckedAccount<'info>, //only to derive pda
     #[account(
         mut,
         seeds = [b"vault", house.key().as_ref()],
@@ -18,7 +18,7 @@ pub struct PlaceBet<'info> {
     #[account(
         init,
         payer = player,
-        space = Bet::Discriminator.len() + Bet::INIT_SPACE,
+        space = Bet::DISCRIMINATOR.len() + Bet::INIT_SPACE,
         seeds = [b"bet", vault.key().as_ref(), seed.to_le_bytes().as_ref()],
         bump
     )]
